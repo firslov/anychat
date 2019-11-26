@@ -18,7 +18,7 @@ const server_host = "http://121.36.5.83"
 
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: server_host + '/socket', // socket地址:端口号
+  connection: server_host,//'/socket', // socket地址:端口号
   //       vuex: {       // 不需要用到vuex这个可以不加
   //             store,
   //             actionPrefix: 'SOCKET_',
@@ -27,7 +27,7 @@ Vue.use(new VueSocketIO({
 }))
 
 // 使用根路径拼接时,请求路径使用相对路径,前面不加/
-Vue.http.options.root = server_host + '/http';
+Vue.http.options.root = server_host + '/http';//'/http';
 // 全局启用 emulateJSON 选项
 Vue.http.options.emulateJSON = true
 
