@@ -11,11 +11,11 @@
     <!-- <home-footer v-show="show"></home-footer> -->
 <!--    <ftp v-show="show1"></ftp>
     <help v-show="show2"></help> -->
-    <div class="ftp_btn" @click="change_ftp">
+    <div class="ftp_btn" v-show="show_ftp" @click="change_ftp">
       {{ ftp_button }}
       <span class="iconfont btn">&#xe6ea;</span>
     </div>
-    <div class="help_btn" @click="change_help">
+    <div class="help_btn" v-show="show_help" @click="change_help">
       {{ help_button }}
       <span class="iconfont btn">&#xe67c;</span>
     </div>
@@ -35,7 +35,9 @@ export default {
       filterlist: [],
       comName: "HomeContainer",
       ftp_button: "仓库",
-      help_button: "帮助"
+      help_button: "帮助",
+      show_ftp: true,
+      show_help: true
     };
   },
   components: {
@@ -54,6 +56,7 @@ export default {
         this.ftp_button = "仓库"
         this.comName = "HomeContainer"
       }
+      this.show_help = !this.show_help
     },
     change_help() {
       if (this.comName == "HomeContainer") {
@@ -63,6 +66,7 @@ export default {
         this.help_button = "帮助"
         this.comName = "HomeContainer"
       }
+      this.show_ftp = !this.show_ftp
     },
     getChatList() {
       this.$http.get('getchatlist').then(result => {

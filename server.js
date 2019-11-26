@@ -9,10 +9,10 @@ var chathis = [];
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'static/public/')
+    cb(null, 'static/public/image/')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    cb(null, file.originalname.slice(0,6))
   }
 })
 
