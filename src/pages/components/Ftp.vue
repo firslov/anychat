@@ -15,7 +15,7 @@
             </thead>
             <tbody>
               <tr v-for="item in list" :style="{ background: rgb() }">
-                <td>
+                <td style="width: 3rem;">
                   <a @click.prevent="getSubList(item.url)">{{ item.name }}</a>
                 </td>
                 <td>{{ item.type }}</td>
@@ -25,7 +25,7 @@
             </tbody>
           </table>
         </div>
-        <div class="upload_form"><input type="file" id="file" name="imgData" accept="image/*" @change="upLoad($event)" /></div>
+        <div class="upload_form"><p>上传</p><input type="file" accept="image/*" @change="upLoad($event)" /></div>
       </div>
     </transition>
   </div>
@@ -50,6 +50,7 @@ export default {
       this.$http.post('/upload', fd).then(res => {
         this.imgPath = res.data.path;
       });
+      alert("上传中，请稍等～");
       setTimeout(() => {
         this.getFileList();
       }, 3000);
@@ -149,37 +150,20 @@ export default {
   .file_list::-webkit-scrollbar
     display none
   .upload_form
-    width 5rem
+    width 2rem
     height 1rem
     line-height 1rem
+    border-radius 0.5rem
+    position relative
+    background-color skyblue
     margin auto
-    margin-top 0.3rem
-    border-radius 0.3rem
-    color dimgrey
-    text-align center
-    .upload_file
+    margin-top .3rem
+    input
       width 2rem
       height 1rem
-      border-radius 0.5rem
-      position relative
-      background-color skyblue
-      float left
-      input
-        width 2rem
-        height 1rem
-        position absolute
-        top 0
-        right 0
-        opacity 0
-    .upload_btn
-      width 2rem
-      border-radius 0.5rem
-      float right
-      input
-        width 2rem
-        height 1rem
-        height 1rem
-        border-radius 0.5rem
-        background-color whitesmoke
-        color dimgrey
+      position absolute
+      top 0
+      right 0
+      opacity 0
+
 </style>
