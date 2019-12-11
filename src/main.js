@@ -7,6 +7,8 @@ import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
 
+import store from './store'
+
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
@@ -14,7 +16,7 @@ Vue.use(VueResource)
 import VueSocketIO from 'vue-socket.io'
 
 // console.log("process.env.HOST_IP: "+process.env.HOST_IP)
-const server_host = "http://121.36.5.83"
+const server_host = "http://chat.firslov.cn"
 
 Vue.use(new VueSocketIO({
   debug: true,
@@ -37,6 +39,7 @@ fastclick.attach(document.body)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: {
     App

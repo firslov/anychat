@@ -29,7 +29,7 @@ def subUrl(url):
                 data.append({"url": fileurl, "name": i, "type": "file", "size": size})
     else:
         url = url.replace(FILE_DIR, "")[1:]
-        DOWN_LOAD = os.path.join("http://121.36.5.83:4000", url)
+        DOWN_LOAD = os.path.join("http://chat.firslov.cn/ftp", url)
         print("download",DOWN_LOAD)
         data.append({"type": "file"})
         data.append({"url": DOWN_LOAD})
